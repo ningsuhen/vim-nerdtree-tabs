@@ -417,11 +417,14 @@ endfun
 "
 fun! s:NERDTreeFindFile()
   if s:IsNERDTreeOpenInCurrentTab()
-    silent NERDTreeFind
+    echo "NERDTree already open. Finding file ..."
+    NERDTreeFind
   else
+    echo "NERDTree not open. Opening ..."
     call s:NERDTreeOpenAllTabs()
     call s:NERDTreeUnfocus()
-    silent NERDTreeFind
+    echo "Finding file ..."
+    NERDTreeFind
   endif
 endfun
 
