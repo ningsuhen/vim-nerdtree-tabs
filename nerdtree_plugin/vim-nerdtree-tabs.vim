@@ -413,10 +413,14 @@ fun! s:RestoreNERDTreeViewIfPossible()
 endfun
 
 " }}}
-" s:NERDTreeFindFile() {{{
+" s:NERDTree() {{{
 "
 fun! s:NERDTreeFindFile()
   if s:IsNERDTreeOpenInCurrentTab()
+    silent NERDTreeFind
+  else
+    call s:NERDTreeOpenAllTabs()
+    call s:NERDTreeUnfocus()
     silent NERDTreeFind
   endif
 endfun
